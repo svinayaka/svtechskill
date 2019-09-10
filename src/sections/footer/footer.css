@@ -10,4 +10,5 @@
     color: black;
     height: 100%;
     width: 4%;
+    min-width: 40px;
 }
