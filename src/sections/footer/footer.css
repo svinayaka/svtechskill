@@ -1,5 +1,7 @@
 .footer {
     background: red;
-    height: 200px;
+    height: 10%;
     width: 100%;
+    position: fixed;
+    bottom: 0;
 }
