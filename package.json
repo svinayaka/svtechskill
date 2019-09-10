@@ -61,10 +61,11 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "scripts": {
-    "show": "node build/lite-server",
-    "start": "node scripts/start.js",
+    "start": "node server.js",
+    "startAlt": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "postinstall": "npm build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -133,5 +134,9 @@
     "presets": [
       "react-app"
     ]
+  },
+  "engines": {
+    "node": "~11.6.0",
+    "npm": "~6.5.0"
   }
 }
