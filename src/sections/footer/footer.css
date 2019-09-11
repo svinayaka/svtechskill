@@ -14,12 +14,11 @@
 }
 
 .menuContent {
-    position: absolute;
-    height: 600px;
-    min-width: 40px;
+    position: fixed;
+    height: 95%;
     width: 20%;
+    min-width: 120px;
     background: yellow;
-    bottom: 100%;
     border: 1px solid;
     border-radius: 1px;
     border-top: 1px;
@@ -28,4 +27,5 @@
     border-left: 0px;
     border-bottom: 0px;
     border-top-right-radius: 20px;
+    bottom: 5%;
 }
