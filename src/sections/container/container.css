@@ -1,4 +1,7 @@
 .menuHolder {
     display: flex;
-    height: 100vh;
+    
+    position: absolute;
+    height: 83.4%;
+    width: 100%;
 }
