@@ -3,6 +3,7 @@ import Button from '../../components/button/button';
 import './footer.css';
 
 class Footer extends React.Component {
+    
     render() {
         return (
             <div className="footer">
