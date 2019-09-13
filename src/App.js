@@ -6,6 +6,14 @@ import Container from './sections/container/container';
 import './App.css';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentWillMount() {
+
+  }
+  
   render() {
     return (
       <Fragment>
