@@ -1,13 +1,51 @@
+/* 
+  bg - F4F4F4
+  border - DCD0C0
+  color - 373737
+  btn - C0B283
+*/
+
 
 * {
   box-sizing: border-box;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: #373737;
+}
+p {
+  color: #373737;
+}
+
+ul {
+  color: #373737;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+button {
+  border: 1px solid #DCD0C0;
+  background: #C0B283;
+  color: #373737;
+  outline: none !important;
+}
+
+button:hover {
+  transition: 0.5;
+  background-image: linear-gradient(#C0B283, #F4F4F4);
+}
+
+div {
+  color: #373737;
+  border: 1px solid #DCD0C0;
+  background: #f4f4f4;
+}
+
 body {
   margin: 0;
-  background: orange !important;
+  background: #F4F4F4 !important;
   height: 100%;
   width: 100%;
   padding-top: 76px;
 }
-#root { }

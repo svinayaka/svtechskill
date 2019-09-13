@@ -1,13 +1,13 @@
 .footer {
-    background: red;
+    background: #F4F4F4;
     height: 45px;
     width: 100%;
     position: fixed;
     bottom: 0;
+    border: 1px solid #DCD0C0;
 }
 
 .menuBtn {
-    color: black;
     height: 100%;
     width: 4%;
     min-width: 40px;
