@@ -7,6 +7,7 @@ class LeftMenu extends React.Component {
         return (
             <div className="menuContent">
                 <ul className="Navigator">
+                    <li><Link to="/about"><button>About Me</button></Link></li>
                     <li><Link to="/javascript"><button>JavaScript</button></Link></li>
                     <li><Link to="/css"><button>CSS</button></Link></li>
                 </ul>
