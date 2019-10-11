@@ -7,7 +7,7 @@ class Footer extends React.Component {
     render() {
         return (
             <div className="footer">
-                <Button className="menuBtn"></Button>
+                <Button className="" data-class="menuBtn"></Button>
             </div>
         )
     }

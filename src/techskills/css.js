@@ -2,7 +2,11 @@ import React from 'react';
 
 class CSSComponent extends React.Component {
     render() {
-        return <p>I am CSS!</p>;
+        return ( 
+            <div>
+                <pre>I am CSS!</pre>
+            </div>
+        )
     }
 }
 
