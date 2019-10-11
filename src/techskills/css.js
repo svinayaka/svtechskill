@@ -4,7 +4,7 @@ class CSSComponent extends React.Component {
     render() {
         return ( 
             <div>
-                <pre>I am CSS!</pre>
+                <pre>A css allows you to customize a web page.</pre>
             </div>
         )
     }
