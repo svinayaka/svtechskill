@@ -11,11 +11,14 @@ class SearchComponent extends React.Component {
     debounce(fn, delay) {
         let execution = null;
         return (event) => {
+            event.persist();
             clearTimeout(execution);
-            execution = setTimeout(() => { fn(event) }, delay) 
+            execution = setTimeout(() => { fn(event.target.value) }, delay) 
         }
     }
-    searchTerm(event) { console.log(event) }
+    searchTerm(value) { 
+        this.props.leftContainer(value);
+    }
     render() {
         return  <input className="searchInput" type="text" placeholder="Search skills" onKeyUp={this.debounce(this.searchTerm, 1000)}/>;
     }

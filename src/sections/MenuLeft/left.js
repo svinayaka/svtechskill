@@ -12,17 +12,30 @@ class LeftMenu extends React.Component {
                 { link: 'html', txt: 'HTML' },
                 { link: 'javaScript', txt: 'JavaScript' },
                 { link: 'css', txt: 'CSS' }
-            ]
+            ],
+            searchTerm : ''
         }
         this.handleOnClick = this.handleOnClick.bind(this);
+        this.searchedTerm = this.searchedTerm.bind(this);
     }
-
+    searchedTerm(valSearched) { 
+        this.setState({searchTerm : valSearched}); 
+        this.render();
+    }
     handleOnClick() { }
     render() {
-        const techSkils = this.state.techSkils;
+        const techSkils = this.state.techSkils.filter(eachSkill => {
+            if (this.state.searchTerm) {
+                const searchTecList = eachSkill.txt.trim().toLowerCase();
+                const searchedTerm = this.state.searchTerm.trim().toLowerCase();
+                return (searchTecList.includes(searchedTerm)) ? true : false;
+            } else {
+                return true;
+            }
+        });
         return (
             <div className="menuContent">
-                <div><SearchComponent></SearchComponent></div>
+                <div><SearchComponent leftContainer={this.searchedTerm}></SearchComponent></div>
                 <ul className="Navigator">
                     {techSkils.map((row, index) => {
                         return (
