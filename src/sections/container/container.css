@@ -1,6 +1,0 @@
-.menuHolder {
-    display: flex;
-    position: absolute;
-    height: calc(100% - 120px);
-    width: 100%;
-}
