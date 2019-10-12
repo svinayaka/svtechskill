@@ -9,9 +9,9 @@ class LeftMenu extends React.Component {
         this.state = {
             techSkils: [
                 { link: 'about', txt: 'About Me' },
-                { link: 'html', txt: 'HTML' },
-                { link: 'javaScript', txt: 'JavaScript' },
-                { link: 'css', txt: 'CSS' }
+                { link: 'techskill/html', txt: 'HTML' },
+                { link: 'techskill/javascript', txt: 'JavaScript' },
+                { link: 'techskill/css', txt: 'CSS' }
             ],
             searchTerm : ''
         }

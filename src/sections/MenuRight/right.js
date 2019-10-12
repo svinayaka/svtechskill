@@ -1,8 +1,7 @@
 import React from 'react';
 import { BrowserRouter as router, Route, Link, Redirect } from 'react-router-dom';
-import JavaScriptComponent from '../../techskills/javascript';
-import CSSComponent from '../../techskills/css';
 import AboutComponent from '../../about/about';
+import TechSkillComponent from '../../techskills/techskill';
 import './right.css';
 
 class RightMenu extends React.Component {
@@ -11,8 +10,7 @@ class RightMenu extends React.Component {
             <router className="mainRouter">
                 <Redirect exact  from="/" to="/about"/>
                 <Route path="/about" component={AboutComponent} />
-                <Route path="/javascript" component={JavaScriptComponent} />
-                <Route path="/css" component={CSSComponent} />   
+                <Route path="/techskill/:id" component={TechSkillComponent} />
             </router>
         );
     }
