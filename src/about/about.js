@@ -2,11 +2,31 @@ import './about.css';
 import React from 'react';
 
 class AboutComponent extends React.Component {
+    constructor(props) {
+        super(props);
+        this.fetchUsers = this.fetchUsers.bind(this);
+        this.state = {
+            about: ''
+        }
+    }
+    componentDidMount() {
+        this.fetchUsers();
+    }
+    fetchUsers() { 
+        fetch(`https://svnodeservices.herokuapp.com/`)
+        .then(response => response.json())
+        .then((resp) => {
+            this.setState({
+                about: resp.about,
+            })
+        });
+    }
     render() {
+        const about = this.state.about;
         return (
         <div>
             <h4>About Me</h4>
-            <p>I am web application developer, transferring technical skills either through implementation on projects or sharing via blogs!</p>
+            <p>{about}</p>
         </div>
         );
     }
