@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { Button as btn , ButtonToolbar } from 'react-bootstrap';
 import './button.css';
 
@@ -13,9 +13,15 @@ class Button extends React.Component {
     onClicked() {
     }
     render() {
-        return (
-            <button className="{this.btnClass ? 'menuBtn' : '' }" onClick={this.onClicked}>{this.btnClass}☰</button>
-        );
+        if (this.btnClass === 'menuBtn') {
+            return (
+                <button className="menuBtn" onClick={this.onClicked}>☰</button>
+            )
+        } else {
+            return (
+                <button className="" onClick={this.onClicked}></button>
+            )
+        }
     }
 }
 
