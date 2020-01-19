@@ -1,5 +1,5 @@
 .menuContent {
-    min-width: 120px;
+    min-width: 100%;
     border-radius: 1px;
     border-top: 0;
     border-width: 1px;
@@ -8,10 +8,25 @@
     border-top-right-radius: 0;
     height: 100%;
     overflow: auto;
+    position: absolute;
+    border: none;
+    background: transparent;
 }
 
-.Navigator {
-    
+.menuContent > ul > li {
+    position: relative;
+}
+.menuContent > ul > li ul {
+    position: absolute;
+    top: 0px;
+    left: 128px;
+    display: none;
+}
+.menuContent > ul > li:hover ul {
+    position: absolute;
+    top: 0px;
+    left: 128px;
+    display: block;
 }
 
 .Navigator button {

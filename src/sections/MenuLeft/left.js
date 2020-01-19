@@ -1,44 +1,52 @@
 import React from 'react';
-import { BrowserRouter as router, Route, Link } from 'react-router-dom';
 import { app } from '../../env-variabels/configuration';
 import SearchComponent from '../../components/search/search-btn';
+import HyperLink from '../../components/link/link';
+import store from '../../redux/store/store';
+import { MENU_LIST } from '../../redux/actions/communication';
 import './left.css';
 
 class LeftMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            techSkils: [
+            techSkills: [
                 { link: 'about', txt: 'About Me' }
-                // { link: 'techskill/html', txt: 'HTML' },
-                // { link: 'techskill/javascript', txt: 'JavaScript' },
-                // { link: 'techskill/css', txt: 'CSS' }
             ],
+            show: false,
             searchTerm : ''
         }
+        store.subscribe(() => {
+            this.setState(() => { 
+                console.log(Object.assign({}, this.state, store.getState()));
+                return  Object.assign({}, this.state, store.getState());
+            });
+        })
         this.handleOnClick = this.handleOnClick.bind(this);
         this.searchedTerm = this.searchedTerm.bind(this);
     }
     componentWillMount(){ }
-    componentDidMount() { 
+    componentDidMount() {
         this.getRouteList();
     }
-    
+
     changeState() { }
 
     searchedTerm(valSearched) { 
         this.setState({searchTerm : valSearched}); 
     }
+    
     async getRouteList() {
         const fetchData = await fetch(app.url + "svtechlink")
         const response = await fetchData.json();
-        this.setState({
-            techSkils: response.link
-        }) 
+        store.dispatch({
+            type: MENU_LIST,
+            navList: response.link
+        })
     }
     handleOnClick() { }
     render() {
-        const techSkils = this.state.techSkils.filter(eachSkill => {
+        const techSkills = this.state.techSkills.filter(eachSkill => {
             if (this.state.searchTerm) {
                 const searchTecList = eachSkill.txt.trim().toLowerCase();
                 const searchedTerm = this.state.searchTerm.trim().toLowerCase();
@@ -48,21 +56,15 @@ class LeftMenu extends React.Component {
             }
         });
         return (
-            <div className="menuContent">
+            <div className="menuContent" style={this.state.show ? { 'display': 'block' } : { 'display': 'none' }}>
                 <div><SearchComponent leftContainer={this.searchedTerm}></SearchComponent></div>
-                <ul className="Navigator">
-                    {techSkils.map((row, index) => {
-                        return (
-                            <li key={index}><Link  to={'/'+row.link} onClick={this.handleOnClick}><button>{row.txt}</button></Link></li>
-                        )
-                    })}
-                </ul>
+                <HyperLink links={techSkills}></HyperLink>
             </div>
         );
     }
     // shouldComponentUpdate() {  } // this needs to be checked
-    componentWillUpdate() {  }
-    componentDidUpdate() {  }
 }
+
+
 
 export default LeftMenu;

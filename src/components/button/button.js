@@ -8,9 +8,10 @@ class Button extends React.Component {
         super(props);
         this.onClicked = this.onClicked.bind(this);
         this.btnClass = this.props['data-class'];
-        console.log(this.btnClass);
     }
     onClicked() {
+        const toggled = !this.props['data-toggle'];
+        this.props.onToggle(toggled);
     }
     render() {
         if (this.btnClass === 'menuBtn') {

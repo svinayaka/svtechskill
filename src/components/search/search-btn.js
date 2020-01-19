@@ -20,7 +20,7 @@ class SearchComponent extends React.Component {
         this.props.leftContainer(value);
     }
     render() {
-        return  <input className="searchInput" type="text" placeholder="Search skills" onKeyUp={this.debounce(this.searchTerm, 1000)}/>;
+        return  <input className="searchInput" type="text" placeholder="Search skills" onKeyUp={this.debounce(this.searchTerm, 500)}/>;
     }
 }
 
