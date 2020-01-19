@@ -7,26 +7,19 @@ import './footer.css';
 class Footer extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            toggleMenu: true
-        }
         this.captureToggleStatus = this.captureToggleStatus.bind(this);
     }
-    captureToggleStatus(gotData) {
-        this.setState({
-            toggleMenu: gotData
-        });
+    captureToggleStatus(toggleBtn) {
         // A dispatched action object...
         store.dispatch({
             type: MENU_TOGGLE,
-            toggleState: gotData
+            toggleState: toggleBtn
         })
     }
     render() {
-        const toggle = this.state.toggleMenu;
         return (
             <div className="footer">
-                <Button className="" data-class="menuBtn" data-toggle={toggle} onToggle={this.captureToggleStatus}></Button>
+                <Button className="" {...this.props} data-class="menuBtn" onToggle={this.captureToggleStatus}></Button>
             </div>
         )
     }

@@ -3,20 +3,18 @@ import { Button as btn , ButtonToolbar } from 'react-bootstrap';
 import './button.css';
 
 class Button extends React.Component {
-    btnClass = null;
     constructor(props) {
         super(props);
         this.onClicked = this.onClicked.bind(this);
-        this.btnClass = this.props['data-class'];
     }
     onClicked() {
-        const toggled = !this.props['data-toggle'];
+        const toggled = !this.props.TECHSKILLS.show;
         this.props.onToggle(toggled);
     }
     render() {
-        if (this.btnClass === 'menuBtn') {
+        if (this.props['data-class'] === 'menuBtn') {
             return (
-                <button className="menuBtn" onClick={this.onClicked}>☰</button>
+                <button className={this.props['data-class']} onClick={this.onClicked}>☰</button>
             )
         } else {
             return (

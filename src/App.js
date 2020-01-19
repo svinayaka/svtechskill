@@ -17,7 +17,7 @@ class App extends React.Component {
           <BrowserRouter>
             <Container {...this.props}></Container>
           </BrowserRouter>
-          <Footer appProps={this.props}></Footer>
+          <Footer {...this.props}></Footer>
       </Fragment>
     );
   }
