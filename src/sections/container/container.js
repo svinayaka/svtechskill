@@ -4,11 +4,14 @@ import RightMenu from '../MenuRight/right';
 import './container.css';
 
 class Container extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
             <div className="menuHolder">
-                <LeftMenu></LeftMenu>
-                <RightMenu></RightMenu>
+                <LeftMenu {...this.props}></LeftMenu>
+                <RightMenu {...this.props}></RightMenu>
             </div>
         );
     }

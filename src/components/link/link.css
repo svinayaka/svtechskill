@@ -5,4 +5,5 @@
 .Navigator {
     margin: 0px;
     width: 8rem;
+    display: inline-block;
 }

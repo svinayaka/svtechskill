@@ -1,14 +1,19 @@
 import './about.css';
 import React from 'react';
+import store from '../redux/store/store';
+import { ABOUT } from '../redux/actions/communication';
 
 class AboutComponent extends React.Component {
     constructor(props) {
         super(props);
         this.fetchUsers = this.fetchUsers.bind(this);
-        this.state = {
-            about: ''
-        }
+        store.subscribe(this.bindToState.bind(this));
     }
+
+    bindToState() {
+        const state = store.getState();
+    }
+
     componentDidMount() {
         this.fetchUsers();
     }
@@ -16,17 +21,19 @@ class AboutComponent extends React.Component {
         fetch(`https://svnodeservices.herokuapp.com/`)
         .then(response => response.json())
         .then((resp) => {
-            this.setState({
-                about: resp.about,
+            store.dispatch({
+                type: ABOUT,
+                about: resp.about
             })
         });
     }
     render() {
-        const about = this.state.about;
+        const state = store.getState();
+        const props = { ...state, ...this.props };
         return (
         <div>
             <h4>About Me</h4>
-            <p>{about}</p>
+            <p>{props.about}</p>
         </div>
         );
     }

@@ -6,16 +6,18 @@ import Container from './sections/container/container';
 import './App.css';
 
 class App extends React.Component {
-  constructor(props) { super(props); }
+  constructor(props) { 
+    super(props);
+  }
   componentWillMount() { }
   render() {
     return (
       <Fragment>
           <Header></Header>
           <BrowserRouter>
-            <Container></Container>
+            <Container {...this.props}></Container>
           </BrowserRouter>
-          <Footer></Footer>
+          <Footer appProps={this.props}></Footer>
       </Fragment>
     );
   }
