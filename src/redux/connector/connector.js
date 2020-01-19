@@ -1,13 +1,12 @@
-import { connect } from 'react';
+import { connect } from 'react-redux';
 import App from '../../App';
 
-// function stateToProps(state) {
-//     return {
-//         TECHSKILLS: state.TECHSKILLS
-//     };
-// }
+const mapStateToProps = (state) => {
+    return {
+        TECHSKILLS: state.TECHSKILLS
+    };
+}
 
-// const CONNECTOR = connect(stateToProps)(App);
-const CONNECTOR = '';
+const CONNECTOR = connect(mapStateToProps)(App);
 
 export default CONNECTOR;
