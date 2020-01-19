@@ -3,25 +3,12 @@ import { app } from '../../env-variabels/configuration';
 import SearchComponent from '../../components/search/search-btn';
 import HyperLink from '../../components/link/link';
 import store from '../../redux/store/store';
-import { MENU_LIST } from '../../redux/actions/communication';
+import { MENU_LIST, SEARCH_TEXT } from '../../redux/actions/communication';
 import './left.css';
 
 class LeftMenu extends React.Component {
     constructor(props) {
         super(props);
-        // this.state = {
-        //     techSkills: [
-        //         { link: 'about', txt: 'About Me' }
-        //     ],
-        //     show: false,
-        //     searchTerm : ''
-        // }
-        // store.subscribe(() => {
-        //     this.setState(() => { 
-        //         console.log(Object.assign({}, this.state, store.getState()));
-        //         return  Object.assign({}, this.state, store.getState());
-        //     });
-        // })
         this.handleOnClick = this.handleOnClick.bind(this);
         this.searchedTerm = this.searchedTerm.bind(this);
     }
@@ -33,7 +20,11 @@ class LeftMenu extends React.Component {
     changeState() { }
 
     searchedTerm(valSearched) { 
-        this.setState({searchTerm : valSearched}); 
+        this.props.dispatch({
+            type: SEARCH_TEXT,
+            srcTerm: valSearched
+        })
+        //this.setState({searchTerm : valSearched}); 
     }
     
     async getRouteList() {

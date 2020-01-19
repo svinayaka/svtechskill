@@ -1,4 +1,4 @@
-import { MENU_TOGGLE, MENU_LIST, ABOUT } from '../actions/communication';
+import { MENU_TOGGLE, MENU_LIST, ABOUT, SEARCH_TEXT } from '../actions/communication';
 import { TECHSKILLS } from '../data/techskills';
 
 export const communicationReducer = (state = TECHSKILLS, action) => {
@@ -8,7 +8,9 @@ export const communicationReducer = (state = TECHSKILLS, action) => {
         case MENU_LIST:
             return Object.assign({}, state, { techSkills:  action.navList });
         case ABOUT:
-            return Object.assign({}, state, {}, { about: action.about}); 
+            return Object.assign({}, state, { about: action.about }); 
+        case SEARCH_TEXT:
+            return Object.assign({}, state, {searchTerm: action.srcTerm });
         default:
             return state;
     }
