@@ -2,7 +2,6 @@ import React from 'react';
 import SkillComponent from '../components/skills/skills'
 import './techskill.css';
 
-
 class TechSkillComponent extends React.Component {
     constructor(props) {
         super(props);

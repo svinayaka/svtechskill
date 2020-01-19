@@ -57,12 +57,11 @@ class LeftMenu extends React.Component {
         });
         return (
             <div className="menuContent" style={this.state.show ? { 'display': 'block' } : { 'display': 'none' }}>
-                <div><SearchComponent leftContainer={this.searchedTerm}></SearchComponent></div>
                 <HyperLink links={techSkills}></HyperLink>
+                <div><SearchComponent leftContainer={this.searchedTerm}></SearchComponent></div>
             </div>
         );
     }
-    // shouldComponentUpdate() {  } // this needs to be checked
 }
 
 
