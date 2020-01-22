@@ -24,7 +24,6 @@ class LeftMenu extends React.Component {
             type: SEARCH_TEXT,
             srcTerm: valSearched
         })
-        //this.setState({searchTerm : valSearched}); 
     }
     
     async getRouteList() {

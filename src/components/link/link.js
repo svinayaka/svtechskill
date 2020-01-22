@@ -1,30 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import { Link } from 'react-router-dom';
 import './link.css';
 
 class HyperLink extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            techSkills: this.props.links
-        }
+    constructor(props) { 
+        super(props); 
+        this.eleRef = React.createRef();
     }
-    componentDidUpdate(previous) { 
-        
+
+    //onClick={this.handleOnClick}
+    navOnHover(event) {
+        console.log(event.target.parentElement.parentElement.innerHTML); 
     }
-    componentWillUpdate() {
-        
-    }
-    shouldComponentUpdate(previous, next) {
-        if (previous.links.length !== next.techSkills.length){
-            this.setState({
-                techSkills: this.props.links
-            })
-        }
-        return true;
-    }
+
     render() {
-        const techSkills = this.state.techSkills;
+        const techSkills = this.props.links;
         return (
             <ul className="Navigator">
                 {
@@ -32,14 +22,14 @@ class HyperLink extends Component {
                         if (row.subLink) {
                             return (
                                 <li key={index}>
-                                    <Link to={'/'+row.link} onClick={this.handleOnClick}><button>{row.txt}</button></Link>
+                                    <Link to={'/'+row.link}  ref={this.eleRef} onMouseEnter={this.navOnHover}><button>{row.txt}</button></Link>
                                     <HyperLink links={row.subLink}></HyperLink>
                                 </li>
                             )
                         } else {
                             return (
-                                <li key={index}>
-                                    <Link to={'/'+row.link} onClick={this.handleOnClick}><button>{row.txt}</button></Link>
+                                <li key={index} >
+                                    <Link to={'/'+row.link} onMouseEnter={this.navOnHover}><button>{row.txt}</button></Link>
                                 </li>
                             )
                         }
