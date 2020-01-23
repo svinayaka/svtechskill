@@ -11,7 +11,8 @@ class TechSkillComponent extends React.Component {
         let nestSkills = [];
         for(let initSkill = 0 ; initSkill < techSkills.length; initSkill++) {
             if (id.toUpperCase()=== techSkills[initSkill].txt.toUpperCase()) {
-                return techSkills[initSkill];
+                const {link='', txt='', discription=[]} = techSkills[initSkill];
+                return {link:link, txt: txt, discription: discription};
             } else if (techSkills[initSkill].subLink) { 
                 nestSkills = nestSkills.concat(techSkills[initSkill].subLink);
             }
@@ -25,9 +26,9 @@ class TechSkillComponent extends React.Component {
         const selectedPage = this.findTechskills(props.techSkills, id);
         props = { ...props, ...selectedPage };
         return (
-        <div>
-            <SkillComponent {...props}/>
-        </div>
+            <div>
+                <SkillComponent {...props}/>
+            </div>
         );
     }
 }

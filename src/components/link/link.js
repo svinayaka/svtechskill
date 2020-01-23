@@ -10,7 +10,10 @@ class HyperLink extends Component {
 
     //onClick={this.handleOnClick}
     navOnHover(event) {
-        console.log(event.target.parentElement.parentElement.innerHTML); 
+        let liElm = event.target.parentElement.parentElement;
+        if (liElm.nodeName === 'LI') {
+            console.log(liElm);
+        } 
     }
 
     render() {
