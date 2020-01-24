@@ -33,25 +33,25 @@ class SkillComponent extends React.Component {
 }                               
 
 function HEADER(txt) {
-    return (txt) ? <h3>{txt.header}</h3> : '';
+    return (txt.header) ? <h3>{txt.header}</h3> : '';
 } 
 
 function TITLE(txt) {
-    return (txt) ? <h3>{txt.title}</h3> : '';
+    return (txt.title) ? <h5>{txt.title}</h5> : '';
 }
 
 function INFO(info) {
-    return (info) ? <h3>{info.info}</h3> : '';
+    return (info.info) ? <p>{info.info}</p> : '';
 }
 
 function CODE(list) {
     return list.code.map((eachList) => {
-        return (<p>{eachList.code}</p>);
+        return (<pre>{eachList.code}</pre>);
     });
 }
 
 function IMG(img) {
-    return (img) ? <img src={img.img} /> : '';
+    return (img.img) ? <img src={img.img}/> : '';
 }
 
 export default SkillComponent;
