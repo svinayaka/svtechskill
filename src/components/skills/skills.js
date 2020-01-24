@@ -46,7 +46,7 @@ function INFO(info) {
 
 function CODE(list) {
     return list.code.map((eachList) => {
-        return (<pre>{eachList.code}</pre>);
+        return (<pre>{eachList}</pre>);
     });
 }
 
